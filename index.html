@@ -924,7 +924,7 @@
 <!-- NAV -->
 <nav>
   <a href="#" class="nav-logo">
-    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" fill="none"> <!-- Ghost body --> <path d="M30 62 C28 55 26 48 27 40 C28 22 38 14 50 13 C62 12 73 22 73 38 C73 50 68 58 65 63 C63 67 61 70 60 73 C58 71 55 68 52 67 C50 66 48 66 46 67 C43 68 40 71 38 73 C37 70 35 67 33 64 Z" fill="white"/> <!-- Star/sparkle eye left --> <path d="M44 38 C44 38 40 42 44 46 C48 50 52 46 52 46 C52 46 56 42 52 38 C48 34 44 38 44 38 Z" fill="#0A0A0A"/> <!-- Pill eye right --> <rect x="56" y="40" width="11" height="6" rx="3" fill="#0A0A0A"/></svg>
+    <img src="data:image/png;base64," style="width:42px;height:42px;object-fit:contain;mix-blend-mode:screen;display:block;flex-shrink:0;" alt="Ghost Agency">
     <span class="nav-logo-text">Ghost Agency</span>
   </a>
   <ul class="nav-links">
@@ -1228,15 +1228,15 @@
     <form class="form-group fade-up" name="contacto" method="POST" action="https://formsubmit.co/cuellarandres074@gmail.com" netlify netlify-honeypot="bot-field">
       <input type="hidden" name="_subject" value="Nuevo cliente — Ghost Agency">
       <input type="hidden" name="_captcha" value="false">
-      <input type="hidden" name="_next" value="https://ghostagency.netlify.app/gracias.html">
+      <input type="hidden" name="_next" value="https://ghost-company.netlify.app">
       <input type="text" name="bot-field" style="display:none">
       <div class="form-row">
-        <input type="text" placeholder="Tu nombre" required>
-        <input type="text" placeholder="Empresa o marca">
+        <input type="text" name="nombre" placeholder="Tu nombre" required>
+        <input type="text" name="empresa" placeholder="Empresa o marca">
       </div>
-      <input type="email" placeholder="Tu email" required>
-      <input type="tel" placeholder="WhatsApp (opcional)">
-      <select>
+      <input type="email" name="email" placeholder="Tu email" required>
+      <input type="tel" name="whatsapp" placeholder="WhatsApp (opcional)">
+      <select name="servicio">
         <option value="" disabled selected>¿Qué servicio te interesa?</option>
         <option>Performance Marketing</option>
         <option>SEO &amp; Posicionamiento Orgánico</option>
@@ -1245,7 +1245,7 @@
         <option>Plan completo</option>
         <option>Tengo una duda</option>
       </select>
-      <textarea placeholder="Cuéntanos sobre tu negocio y qué necesitas..."></textarea>
+      <textarea name="mensaje" placeholder="Cuéntanos sobre tu negocio y qué necesitas..." rows="4"></textarea>
       <button type="submit" class="form-submit">Enviar mensaje →</button>
     </form>
   </div>
@@ -1316,15 +1316,10 @@
   }
 
   function handleSubmit(e) {
-    e.preventDefault();
+    // Let the form submit naturally to FormSubmit
     const btn = e.target.querySelector('.form-submit');
-    btn.textContent = '✓ Mensaje enviado';
-    btn.style.background = '#1a7a3a';
-    setTimeout(() => {
-      btn.textContent = 'Enviar mensaje →';
-      btn.style.background = '';
-      e.target.reset();
-    }, 3000);
+    btn.textContent = 'Enviando...';
+    btn.disabled = true;
   }
 </script>
 
